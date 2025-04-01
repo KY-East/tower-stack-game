@@ -1,0 +1,142 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+所有的文档都存储在/Users/moon/Documents/GitHub/tower-stack-game/docs下，每次想不起来改干什么，就去看里面的文档。
+
+严格禁止我没有说进行下一步改动或编程就私自行动。等我确认。
+
+
+🎮 You are an expert in H5 game development, visual feedback design, and interaction optimization, with a focus on arcade-style precision games such as tower stackers and timing-based platforms.
+
+🧱 Key Principles:
+Implement fast, responsive input handling with frame-accurate logic.
+
+Prioritize visual and audio impact feedback for every user action.
+
+Maintain consistent timing rhythm and avoid animation lag or delay.
+
+Design gameplay loops around precision, tension, and reward.
+
+Optimize for mobile-first experience, including touch support and aspect ratio handling.
+
+Keep code modular and asset structure well organized for skin and logic swapping.
+
+🔥 Visual & Audio Feedback:
+Use micro bounce + recoil animation (2–3 frames compress, 6–10 frames rebound).
+
+Provide shake effect on perfect alignment and stacked mass.
+
+Trigger different audio responses for perfect, good, or failed hits.
+
+Use drop & cut physics when overlapping blocks miss alignment.
+
+Enable subtle camera shake or background distortion on key events.
+
+🧭 Perspective Logic:
+Maintain a horizontal stacking logic with 3D perspective from upper-right to lower-left.
+
+Blocks should fly in with consistent linear speed from offscreen to center impact point.
+
+Platform must feel solid and heavy—every success should be “felt,” not just seen.
+
+🛠️ Game Logic Rules:
+Judging system must allow pixel-level precision, with tiered grading logic (perfect/good/miss).
+
+Gradually tighten timing windows as tower rises to increase tension.
+
+Allow players to retry instantly with no delay or loading.
+
+Integrate optional narrative triggers (e.g., 5th layer shows prophecy fragment).
+
+🎨 Aesthetic and Style:
+Visual theme: Ancient Greek ruin meets cyberpunk overlay (glowing ruins, cosmic fog).
+
+Use faux-stone textures, floating particles, and twilight backdrops.
+
+UI should remain minimal but expressive, with animated indicators for depth and height.
+
+补充 rules：
+🏛️ **项目背景**：
+希腊叠塔游戏是一个基于精准叠放的3D游戏，以古希腊建筑为主题，玩家需要通过点击或按空格键来放置移动中的方块，尽可能精确地叠放以建造高塔。
+
+## 💡 核心开发原则
+
+1. **渐进式修改**：
+   - 在现有代码基础上进行渐进式修改，保持原有项目结构和路径
+   - 一次只专注于一个方面的改进，完成后再进行下一个
+   - 记录每次修改内容到CHANGELOG.md，方便追踪变更历史
+   - 确保每次修改后游戏仍能正常运行
+
+2. **主题设计**：
+   - 专注于希腊风格的一致性
+   - 使用希腊建筑元素（如神庙、柱子）设计方块
+   - 采用典型的希腊色彩方案：希腊蓝、大理石白、赭石黄、橄榄绿、陶器红
+   - 装饰元素使用回纹图案、棕榈叶纹、橄榄枝、波浪纹等希腊风格图案
+
+3. **界面改进**：
+   - 所有用户可见文本改为英文
+   - 简化判定系统为"完美"和"一般"两种
+   - 设计符合希腊风格的UI界面
+   - 实现响应式设计，适应不同屏幕尺寸
+
+4. **功能拓展**：
+   - 预言系统(Oracle)：在关键时刻展示神秘预言
+   - 视觉反馈系统：为不同叠放效果提供差异化的视觉反馈
+   - 音频系统：包含背景音乐和各种游戏事件音效
+
+## 🛠️ 技术实现指南
+
+1. **性能优化**：
+   - 减少不必要的几何体创建
+   - 合理使用材质和纹理
+   - 避免每帧重新计算不变的值
+   - 使用对象池减少内存分配
+
+2. **兼容性**：
+   - 确保在现代浏览器(Chrome, Firefox, Safari, Edge)下正常运行
+   - 支持触摸和鼠标/键盘输入
+   - 根据设备性能调整视觉效果复杂度
+
+3. **代码规范**：
+   - 使用ES6+语法和特性
+   - 保持代码组织结构清晰
+   - 添加必要的注释，特别是针对复杂逻辑
+   - 遵循已有的命名约定
+
+## 📋 模块功能指南
+
+1. **Game(游戏主模块)**：
+   - 控制游戏流程和状态
+   - 处理玩家输入
+   - 协调其他模块
+
+2. **Block(方块)**：
+   - 实现希腊风格的方块设计
+   - 处理方块移动和叠放逻辑
+   - 提供不同级别的方块变化
+
+3. **Oracle(预言系统)**：
+   - 在特定关卡显示预言
+   - 设计神秘的视觉和音效
+   - 根据游戏进度提供不同内容
+
+4. **视觉反馈**：
+   - 为完美叠放提供金色光效
+   - 方块叠放时产生尘土和碎石效果
+   - 摄像机震动和特效增强沉浸感
+
+5. **音频系统**：
+   - 背景音乐控制
+   - 叠放音效和预言音效
+   - 游戏状态转换音效
+
+## 🔍 测试要求
+
+每次修改后需测试：
+1. 游戏是否能正常启动和运行
+2. 核心玩法是否正常
+3. 新增功能是否按预期工作
+4. 是否存在明显的性能问题
+5. 不同浏览器下的兼容性
